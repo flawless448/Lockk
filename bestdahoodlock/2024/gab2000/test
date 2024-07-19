@@ -34,7 +34,7 @@
 
 
 
-    if key ~= "646FAB26E67EC9C86D3F627955B54" then
+    if HWID_KEY ~= "646FAB26E67EC9C86D3F627955B54" then
         return
     end
 local SYC = {
