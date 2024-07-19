@@ -1,0 +1,2 @@
+# Lockk
+.gg/ulan
