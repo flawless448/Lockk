@@ -15,8 +15,6 @@ local SYC = {
     }
 }
 
--- check if there is no global variable SYC, and if there is none, it will set it to the table above.
--- erm its basically prefetch ifykyk
 if not getgenv().SYC then
     getgenv().SYC = SYC
 end
@@ -83,14 +81,14 @@ local ModuleHandler = (function()
     return ModuleHandler
 end)()
 
-do -- src/Lua/Modules/Base/
+do 
     do -- src/Lua/Modules/Base/Connection.lua
         function SYC.Modules.Connect(onething, secondthing)
             local connection = onething:Connect(secondthing)
             return connection
         end
     end
-    do -- src/Lua/Modules/Base/Draw.lua
+    do 
         local DrawingClass = {}
         DrawingClass.__index = DrawingClass
         DrawingClass.Objects = {}
@@ -114,12 +112,12 @@ do -- src/Lua/Modules/Base/
         
         SYC.Modules.DrawingClass = DrawingClass
     end
-    do -- src/Lua/Modules/Base/Lerp.lua
+    do 
         function SYC.Modules.lerp(a, b, t)
             return a + (b - a) * t
         end
     end
-    do -- src/Lua/Modules/Base/Loops.lua
+    do 
         local Loops = {Heartbeat = {}, RenderStepped = {}}
         function Loops:AddToHeartbeat(Name, Function)
             if Loops["Heartbeat"][Name] == nil then
@@ -4029,7 +4027,7 @@ local nigga = (function() -- src/Lua/loader.lua
                             	return Raycast and Raycast.Position or Mouse.Hit.Position
                             end
                             
-                            -- this is so fucking retarded.
+                            
                             function da_hood.functions:mouse_aim(arguments)
                             	if not type(arguments) == "table" then
                             		return
