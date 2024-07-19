@@ -1,14 +1,3 @@
---[[ 
-    @title
-        .gg/ulan (lua)
-    
-    @author
-        gab20000
-
-    @description
-        gab20000
-]]
-
 local SYC = {
     Modules = {
         UI = {}
