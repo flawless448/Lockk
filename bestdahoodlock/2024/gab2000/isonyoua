@@ -53,8 +53,6 @@ getgenv().inputManager = game:GetService("VirtualInputManager")
 local LocalPlayer = playerService.LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 
--- localization of lua libraries. this reduces the need to repeatedly look up these global libraries.
--- what the actual fuck weda.
 local MathHuge, MathAbs, MathAcos, MathAsin, MathAtan, MathAtan2, MathCeil, MathCos, MathCosh, MathDeg, MathExp, MathFloor, MathFmod, MathFrexp, MathLdexp, MathLog, MathLog10, MathMax, MathMin, MathModf, MathPi, MathPow, MathRad, MathRandom, MathRandomseed, MathSin, MathSinh, MathSqrt, MathTan, MathTanh = math.huge, math.abs, math.acos, math.asin, math.atan, math.atan2, math.ceil, math.cos, math.cosh, math.deg, math.exp, math.floor, math.fmod, math.frexp, math.ldexp, math.log, math.log10, math.max, math.min, math.modf, math.pi, math.pow, math.rad, math.random, math.randomseed, math.sin, math.sinh, math.sqrt, math.tan, math.tanh
 local TableConcat, TableInsert, TablePack, TableRemove, TableSort, TableUnpack, TableClear, TableFind = table.concat, table.insert, table.pack, table.remove, table.sort, table.unpack, table.clear, table.find
 local Vector2New, Vector2Zero, Vector2New = Vector2.new, Vector2.zero, Vector2.new
@@ -67,9 +65,7 @@ local TaskDelay, TaskSpawn, TaskWait = task.delay, task.spawn, task.wait
 local RaycastParamsNew = RaycastParams.new
 local DrawingNew = Drawing.new
 
--- importing of files, this is bundled with a bundler.
-local ModuleHandler = (function() -- src/Lua/Modules/ModuleHandler.lua
-    -- similar to lua require, but it is for a certain table. Such as SYC.Modules
+local ModuleHandler = (function() 
     
     local ModuleHandler = {}
     
@@ -150,15 +146,13 @@ do -- src/Lua/Modules/Base/
         
         SYC.Modules.Loops = Loops
     end
-    do -- src/Lua/Modules/Base/PerlinNoise.lua
-        -- useful shit for legit ig
+    do 
         function SYC.Modules.PerlinNoise(offset, speed, time)
             local value = math.noise(time * speed + offset)
             return math.clamp(value, -0.5, 0.5)
         end
     end
-    do -- src/Lua/Modules/Base/UI - Rich to Plain.lua
-        -- @https://devforum.roblox.com/t/how-to-ensure-a-plain-text-string-when-using-rich-text-field/1640202
+    do 
         function SYC.Modules.UI.RichTextToNormalText(str)
             local output_string = str
             while true do 
@@ -170,7 +164,7 @@ do -- src/Lua/Modules/Base/
             return output_string
         end
     end
-    do -- src/Lua/Modules/Base/UI -GetTextBoundary.lua
+    do 
         function SYC.Modules.UI:GetTextBoundary(Text, Font, Size, Resolution)
             local Bounds = textService:GetTextSize(Text, Size, Font, Resolution or Vector2New(1920, 1080))
             return Bounds.X, Bounds.Y
@@ -4631,8 +4625,7 @@ local nigga = (function() -- src/Lua/loader.lua
                                 aimassist.jitter.z = value
                             end })
                         end
-                        do -- src/Lua/Scripts/da_hood/components/b_silentaim.lua
-                            -- elegant loves titties!!! if he fucking does not, he is gay. people like me are excluded, sadly.
+                        do 
                             
                             function silentaim:get_position()
                                 local position
@@ -5269,7 +5262,7 @@ local nigga = (function() -- src/Lua/loader.lua
                                         for i, v in next, self.objects do
                                             local mousepos = inputService:GetMouseLocation()
                                 
-                                            ---- why the fuck is it interchanged
+
                                             local center_text = self.center
                                             v.Center = center_text
                                 
@@ -5973,7 +5966,7 @@ local nigga = (function() -- src/Lua/loader.lua
                             do
                                 local in_game = miscTab:Section("in game", "left")
                             
-                                local ClearConsole = function () -- minifier is op as fuck
+                                local ClearConsole = function () 
                                     local a=game:GetService("CoreGui"):WaitForChild("DevConsoleMaster")local b=a:WaitForChild("DevConsoleWindow")local c=b:WaitForChild("DevConsoleUI")local d=c:WaitForChild("MainView")local e=d:WaitForChild("ClientLog")for f,g in pairs(e:GetChildren())do if g:IsA("GuiObject")and g.Name==g.Name:match("%d+")then g:Destroy()end end
                                 end
                             
@@ -6944,7 +6937,7 @@ local nigga = (function() -- src/Lua/loader.lua
                         		2310240924147278131725029,
                         	})
                         
-                        -- this is so fucking retarded.
+                        
                         function universal.functions:mouse_aim(arguments)
                         	if not type(arguments) == "table" then
                         		return
